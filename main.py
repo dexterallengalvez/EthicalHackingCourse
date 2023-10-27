@@ -8,9 +8,9 @@ new_mac = input("New MAC > ")
 
 print(f"[+] Changing MAC Address of {interface} to {new_mac}")
 
-subprocess.call(f"ifconfig {interface} down", shell=True)
-subprocess.call(f"ifconfig {interface} hw ether {new_mac}", shell=True)
-subprocess.call(f"ifconfig {interface} up", shell=True)
+subprocess.call(["ifconfig", interface, "down"])
+subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
+subprocess.call(["ifconfig", interface, "up"])
 
 # If wlan0 is missing
 # google: https://mirror2.openwrt.org/sources/
